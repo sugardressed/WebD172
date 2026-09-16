@@ -1,0 +1,53 @@
+Map holds key-value pairs. It’s similar to an array but we can define our own index. And indexes are unique in maps.
+Example:
+<script>
+var NewMap = new Map();
+NewMap.set('name', 'John'); 
+NewMap.set('id', 2345796);
+NewMap.set('interest', ['js', 'ruby', 'python']);
+NewMap.get('name'); // John
+NewMap.get('id'); // 2345796
+NewMap.get('interest'); // ['js', 'ruby', 'python']
+</script>
+Other interesting features of Maps are all indexes are unique. And we can use any value as key or value
+<script>
+var map = new Map();
+map.set('name', 'John');
+map.set('name', 'Andy');
+map.set(1, 'number one');
+map.set(NaN, 'No value');
+map.get('name'); // Andy. Note John is replaced by Andy.
+map.get(1); // number one
+map.get(NaN); // No value
+</script>
+Or
+<script>
+var map = new Map();
+map.set('name', 'John');
+map.set('id', 10);
+map.size; // 2. Returns the size of the map.
+map.keys(); // outputs only the keys. 
+map.values(); // outputs only the values.
+for (let key of map.keys()) {
+ console.log(key);
+}
+</script>
+In the above example, map.keys() returns the keys of the map but it returns it in Iterator object. It means that it can’t be displayed as it is. It should be displayed only by iterating
+
+And More:
+<script>
+	var map = new Map();
+for (let element of map) {
+ console.log(element);
+}
+</script>
+Or 
+<script>
+var map = new Map();
+for (let [key, value] of map) {
+ console.log(key+" - "+value);
+}
+</script>
+
+
+

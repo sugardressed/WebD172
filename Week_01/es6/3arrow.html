@@ -1,0 +1,25 @@
+<script>
+// Old Syntax
+function oldOne() {
+ console.log("Hello World..!");
+}
+// New Syntax
+var newOne = () => {
+ console.log("Hello World..!");
+}
+
+
+</script>
+
+There are two parts of the syntax.
+1.	var newOne = ()
+2.	=> {}
+The first part is just declaring a variable and assigning the function (i.e) () to it. It just says the variable is actually a function.
+Then the second part is declaring the body part of the function. The arrow part with the curly braces defines the body part.
+
+<script>
+	let NewOneWithParameters = (a, b) => {
+ console.log(a+b); // 30
+}
+NewOneWithParameters(10, 20);
+</script>

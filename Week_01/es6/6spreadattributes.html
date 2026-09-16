@@ -1,0 +1,47 @@
+Spread attributes help to spread the expression as the name suggests. In simple words, it converts a list of elements to an array and vice versa.
+Example without spread attributes:
+<script>
+let SumElements = (arr) => {
+ console.log(arr); // [10, 20, 40, 60, 90]
+ let sum = 0;
+ for (let element of arr) {
+  sum += element;
+ }
+ console.log(sum); // 220. 
+}
+SumElements([10, 20, 40, 60, 90]); 
+</script>
+Example with Spread attributes
+<script>
+let SumElements = (...arr) => {
+ console.log(arr); // [10, 20, 40, 60, 90]
+let sum = 0;
+ for (let element of arr) {
+  sum += element;
+ }
+ console.log(sum); // 220. 
+}
+SumElements(10, 20, 40, 60, 90); 
+</script>
+Or 
+<script>
+Math.max(10, 20, 60, 100, 50, 200); // returns 200.
+</script>
+But
+<script>
+let arr = [10, 20, 60];
+Math.max(arr); // Shows error. Doesn't accept an array.
+</script>
+But
+<script>
+let arr = [10, 20, 60];
+Math.max(...arr); // 60 
+</script>
+
+
+
+
+
+
+
+
