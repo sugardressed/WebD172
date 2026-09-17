@@ -7,10 +7,15 @@
 </head>
 <body>
 
+
     <h1>User Directory</h1>
-    <ul class="id"></ul>
-    <userlist></userlist>
-    <script scr="main.js"></script>
+    <label for="userSearch">Search by name, username, email, or city</label>
+    <input type="search" id="userSearch" placeholder="Search users..." disabled>
+    <p id="userCount" role="status" aria-live="polite">Loading users...</p>
+    <ul id="userList"></ul>
+
+
     
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
