@@ -7,18 +7,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>User Directory</title>
 </head>
 <body>
 <header><h1>User Directory</h1></header>
-
-    <label for="userSearch">Search by name, username, email, or city</label>
-    <input type="search" id="userSearch" placeholder="Search users..." disabled>
-    <p id="userCount" role="status" aria-live="polite">Loading users...</p>
-    <ul id="userList"></ul>
-
-
-    
+<main>
+    <div class="search-box">
+        <div class="label-text">
+        <label for="userSearch">Hover over to search by Name, Email, or City</label>
+        </div>
+        <div class="container">
+        <input type="search" id="userSearch" id="box" placeholder="Search users..." class="search__box" disabled>
+        <i class="fas fa-search search__icon" id="icon" onclick="toggleShow()"></i>
+        </div>
+    </div>
+    <div>
+        <p id="userCount" role="status" aria-live="polite">Loading users...</p>
+    </div>
+    <ul id="userList"></ul>    
+    </main>
     <script type="module" src="./main.js"></script>
 </body>
 </html>
