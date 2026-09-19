@@ -7,9 +7,13 @@ let users = [];
 const displayUsers = () => {
   const searchResults = searchInput.value.trim().toLowerCase();
   const matchingUsers = users.filter((user) =>
-    [user.name, user.username, user.email, user.address.city].some((value) =>
-      value.toLowerCase().includes(searchResults),
-    ),
+    [
+      user.name,
+      user.username,
+      user.email,
+      user.address.city,
+      user.address.geo.lat,
+    ].some((value) => value.toLowerCase().includes(searchResults)),
   );
 
   userList.replaceChildren();
@@ -19,22 +23,12 @@ const displayUsers = () => {
     const { name, email, company } = user;
     const listItem = document.createElement("li");
 
-    // const userName = document.createElement("strong");
-    // userName.textContent = `Name: ${name}`;
-    // listItem.append(userName);
-    // [
-    //   `Email: ${email}`,
-    //   `Company: ${company.name}`,
-    //   `City: ${user.address.city}`,
-    // ].forEach((value) => {
-    //   listItem.append(document.createElement("br"), value);
-    // });
-
     [
       ["Name", name, "fa-user"],
       ["Email", email, "fa-envelope"],
       ["Company", company.name, "fa-building"],
       ["City", user.address.city, "fa-map-marker-alt"],
+      ["Latitude", user.address.geo.lat, "fa-street-view"],
     ].forEach(([label, value, iconClass], index) => {
       if (index > 0) {
         listItem.append(document.createElement("br"));
