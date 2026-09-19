@@ -46,12 +46,29 @@ body {
 // Result Cards
 ul {
    
+display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 1em;
+  margin: 0;
+  
+
+
     width: 100%;
     padding: 0 1em;
     text-align: center;
     margin: 0;
 
     li {
+flex: 1 1 280px;
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    text-align: left;
+    line-height: 1.5em;
+
+
+
       list-style: none;
       border: 1px solid var(--line);
       border-radius: 1rem;

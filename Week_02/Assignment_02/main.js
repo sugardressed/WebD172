@@ -18,15 +18,42 @@ const displayUsers = () => {
   matchingUsers.forEach((user) => {
     const { name, email, company } = user;
     const listItem = document.createElement("li");
-    const userName = document.createElement("strong");
-    userName.textContent = name;
-    listItem.append(userName);
-    [email, company.name, user.address.city].forEach((value) => {
-      listItem.append(document.createElement("br"), value);
+
+    // const userName = document.createElement("strong");
+    // userName.textContent = `Name: ${name}`;
+    // listItem.append(userName);
+    // [
+    //   `Email: ${email}`,
+    //   `Company: ${company.name}`,
+    //   `City: ${user.address.city}`,
+    // ].forEach((value) => {
+    //   listItem.append(document.createElement("br"), value);
+    // });
+
+    [
+      ["Name", name, "fa-user"],
+      ["Email", email, "fa-envelope"],
+      ["Company", company.name, "fa-building"],
+      ["City", user.address.city, "fa-map-marker-alt"],
+    ].forEach(([label, value, iconClass], index) => {
+      if (index > 0) {
+        listItem.append(document.createElement("br"));
+      }
+
+      const icon = document.createElement("i");
+      icon.classList.add("fas", iconClass);
+      icon.setAttribute("aria-hidden", "true");
+
+      const labelElement = document.createElement("strong");
+      labelElement.textContent = `${label}: `;
+
+      listItem.append(icon, " ", labelElement, value);
     });
+
     userList.appendChild(listItem);
   });
 };
+
 searchInput.addEventListener("input", displayUsers);
 
 const loadUsers = async () => {
