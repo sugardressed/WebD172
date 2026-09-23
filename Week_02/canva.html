@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en"><head>
+  <script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260918-05-13efa67","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/83d6dfdadcd4750a.telemetry_sdk.js" integrity="sha512-XS4Dvzp6vbagZS9vFErihvr8aO3S0tH78KWUefn06fmL4WYqryBtZj/IOLITYj7dFA4gPVvPg1W/JB1DK3uLNQ==">    
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1d2a32;
+      --muted: #62717a;
+      --line: #dce4e6;
+      --paper: #f6f7f4;
+      --panel: #ffffff;
+      --moss: #2f6254;
+      --moss-dark: #21483e;
+      --sage: #dfeee7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+    }
+
+    .directory-shell {
+      width: 100%;
+      min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+      padding: 1.5rem;
+      background-image:
+        radial-gradient(circle at 8% 2%, rgba(183, 214, 196, 0.65), transparent 25rem),
+        radial-gradient(circle at 94% 8%, rgba(231, 223, 194, 0.7), transparent 23rem);
+    }
+
+    .directory-frame {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .display-face {
+      font-family: "Fraunces", serif;
+    }
+
+    .search-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 0.9rem;
+      background: #fff;
+      color: var(--ink);
+      padding: 1rem 3.25rem 1rem 3rem;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--moss);
+      box-shadow: 0 0 0 4px rgba(47, 98, 84, 0.16);
+    }
+
+    .icon-button:focus-visible,
+    .directory-card:focus-visible {
+      outline: 3px solid #477b6a;
+      outline-offset: 3px;
+    }
+
+    .icon-button:hover {
+      background: #edf4f0;
+      color: var(--moss-dark);
+    }
+
+    .directory-card {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      box-shadow: 0 1px 1px rgba(26, 42, 44, 0.04);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .directory-card:hover {
+      transform: translateY(-3px);
+      border-color: #b8cfc5;
+      box-shadow: 0 12px 28px rgba(33, 72, 62, 0.10);
+    }
+
+    .contact-line svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      color: #59736a;
+    }
+
+    .sr-live {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 640px) {
+      .directory-shell { padding: 0.85rem; }
+      .header-panel { padding: 1.5rem; }
+      .search-panel { padding: 1rem; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/8de366929c5f3b48.data_sdk.js" type="text/javascript" integrity="sha512-TyQ8k8cZj66xe/aENmn6RyZpdOFZXbAo5+KBG3PeFM+Q4qMTHU8xAqmq4ADClNfPrstgQYV6OzZHwLTnElzB2g=="></script>
+  <script src="/_sdk/0ddbbee1c66b1212.editing_sdk.js" type="text/javascript" integrity="sha512-HQn5LM1yruQSbY78ATUril6QeOJ9xj7KqO64ltLtb4vBwI5Qv3/tloFFOndBPZTNZoeV5xKzuth5y6FTi9crsg=="></script>
+  <script src="/_sdk/765e1fea0cec97ce.resizing_sdk.js" type="text/javascript" integrity="sha512-IRTJnqww0+HQ5V/LlWEQrlD5SrYHaVvaeVoNe8HYQXoaguzUGheSd9+n9s6WOgaTcEH0g37DuINHZ9aqfzWjlw=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: rgb(246, 247, 244);">
+  <div class="directory-shell">
+   <div class="directory-frame">
+    <header data-template-id="directory-header" class="canva-header header-panel rounded-3xl border border-[#dce4e6] px-7 py-8 shadow-sm" style="background: rgb(255, 255, 255);">
+     <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+       <p data-template-id="directory-kicker" class="canva-text mb-3 text-sm font-bold uppercase tracking-[0.16em]" style="color: rgb(47, 98, 84); font-weight: 700; font-style: normal; font-size: 13px; letter-spacing: 0.1rem;">People &amp; partners</p>
+       <h1 data-template-id="directory-title" class="canva-text display-face mb-3 leading-tight" style="color: rgb(29, 42, 50); font-weight: 700; font-style: normal; font-size: 32px;">Directory</h1>
+       <p data-template-id="directory-intro" class="canva-text max-w-xl leading-relaxed" style="color: rgb(98, 113, 122); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.5;">Find the right person, team, or point of contact in one place.</p>
+      </div>
+      <div class="hidden items-center gap-2 rounded-full border border-[#c9ddd3] bg-[#edf5f0] px-4 py-2 text-sm font-semibold text-[#2f6254] md:flex"><i data-lucide="users-round" aria-hidden="true" class="h-4 w-4"></i> <span id="member-total">0 people</span>
+      </div>
+     </div>
+    </header>
+    <main class="mt-5">
+     <section data-template-id="search-panel" class="canva-panel search-panel rounded-3xl border border-[#dce4e6] p-5 shadow-sm" aria-labelledby="search-label" style="background: rgb(255, 255, 255);">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+       <div class="w-full max-w-3xl"><label data-template-id="search-label" class="canva-text mb-2 block font-semibold" for="directory-search" style="color: rgb(38, 52, 59); font-weight: 600; font-style: normal; font-size: 15px;">Search the directory</label>
+        <div class="relative"><i data-lucide="search" aria-hidden="true" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#587069]"></i> <input data-template-id="directory-search" class="canva-input search-input" id="directory-search" type="search" autocomplete="off" aria-describedby="results-counter" placeholder="Search by name, role, location, or contact detail" style="color: rgb(29, 42, 50); font-weight: 400; font-style: normal; font-size: 16px;"> <button id="clear-search" class="icon-button absolute right-2 top-1/2 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg text-[#52616a] transition" type="button" aria-label="Clear search"> <i data-lucide="x" aria-hidden="true" class="h-5 w-5"></i> </button>
+        </div>
+       </div>
+       <p id="results-counter" class="whitespace-nowrap text-sm font-semibold text-[#426559]" role="status" aria-live="polite"></p>
+      </div>
+     </section>
+     <section class="mt-6" aria-label="Directory results">
+      <p id="screen-reader-results" class="sr-live" aria-live="polite"></p>
+      <div id="loading-state" class="hidden rounded-2xl border border-dashed border-[#c7d5d1] bg-white/70 px-6 py-12 text-center"><i data-lucide="loader-circle" aria-hidden="true" class="mx-auto mb-3 h-6 w-6 animate-spin text-[#2f6254]"></i>
+       <p data-template-id="loading-state" class="canva-text text-[#52616a]" style="color: rgb(82, 97, 106); font-weight: 400; font-style: normal; font-size: 16px;">Loading directory entries…</p>
+      </div>
+      <div id="empty-directory-state" class="hidden rounded-2xl border border-dashed border-[#c7d5d1] bg-white/70 px-6 py-12 text-center"><i data-lucide="folder-open" aria-hidden="true" class="mx-auto mb-3 h-7 w-7 text-[#587069]"></i>
+       <p data-template-id="empty-directory-state" class="canva-text text-[#52616a]" style="color: rgb(82, 97, 106); font-weight: 400; font-style: normal; font-size: 16px;">No directory entries are available yet.</p>
+      </div>
+      <div id="no-results-state" class="hidden rounded-2xl border border-dashed border-[#c7d5d1] bg-white/75 px-6 py-14 text-center"><i data-lucide="search-x" aria-hidden="true" class="mx-auto mb-4 h-8 w-8 text-[#587069]"></i>
+       <h2 data-template-id="no-results-title" class="canva-text display-face mb-2" style="color: rgb(29, 42, 50); font-weight: 700; font-style: normal; font-size: 24px;">No matches found</h2>
+       <p data-template-id="no-results-copy" class="canva-text mx-auto max-w-md leading-relaxed" style="color: rgb(98, 113, 122); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.5;">Try a different spelling or search for a broader role, location, or keyword.</p>
+      </div>
+      <div id="directory-grid" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
+     </section>
+    </main>
+    <footer class="mt-7 px-1 pb-2 text-center text-sm text-[#68767b]"><span data-template-id="directory-footer" class="canva-text" style="color: rgb(104, 118, 123); font-weight: 400; font-style: normal; font-size: 14px;">Tip: Search works across names, roles, bios, locations, and contact details.</span>
+    </footer>
+   </div>
+  </div>
+  <template id="directory-card-template">
+   <article data-template-id="directory-card" class="canva-card directory-card flex h-full flex-col p-5" tabindex="0">
+    <div class="mb-4 flex items-start justify-between gap-3">
+     <div>
+      <h2 data-template-id="directory-name" class="canva-text text-lg font-bold leading-snug"></h2>
+      <p data-template-id="directory-role" class="canva-tag directory-role-tag mt-2 inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide"></p>
+     </div>
+     <div class="rounded-xl bg-[#e6f1eb] p-2.5 text-[#2f6254]" aria-hidden="true"><i data-lucide="contact-round" class="h-5 w-5"></i>
+     </div>
+    </div>
+    <p data-template-id="directory-description" class="canva-text mb-5 flex-grow text-sm leading-relaxed"></p>
+    <div class="space-y-2 border-t border-[#e3e9e8] pt-4 text-sm">
+     <div class="contact-line flex items-center gap-2"><i data-lucide="mail" aria-hidden="true"></i> <span data-template-id="directory-email" class="canva-text"></span>
+     </div>
+     <div class="contact-line flex items-center gap-2"><i data-lucide="map-pin" aria-hidden="true"></i> <span data-template-id="directory-location" class="canva-text"></span>
+     </div>
+     <div class="contact-line flex items-center gap-2"><i data-lucide="phone" aria-hidden="true"></i> <span data-template-id="directory-phone" class="canva-text"></span>
+     </div>
+    </div>
+   </article>
+  </template>
+  <script>
+    // Replace or extend this small sample array to adapt the directory.
+    const directoryEntries = [
+      {
+        id: "maya-chen",
+        name: "Maya Chen",
+        role: "Design Lead",
+        description: "Guides brand systems, visual direction, and thoughtful product experiences.",
+        email: "maya.chen@northstar.co",
+        location: "San Francisco, CA",
+        phone: "(415) 555-0138"
+      },
+      {
+        id: "jonah-wells",
+        name: "Jonah Wells",
+        role: "Community Manager",
+        description: "Connects members with resources, events, and each other across the community.",
+        email: "jonah.wells@northstar.co",
+        location: "Oakland, CA",
+        phone: "(510) 555-0184"
+      },
+      {
+        id: "amira-patel",
+        name: "Amira Patel",
+        role: "People Operations",
+        description: "Supports an inclusive workplace through programs, onboarding, and team care.",
+        email: "amira.patel@northstar.co",
+        location: "Remote · Pacific",
+        phone: "(628) 555-0161"
+      },
+      {
+        id: "elliot-morgan",
+        name: "Elliot Morgan",
+        role: "Engineering",
+        description: "Builds reliable digital tools and makes complex systems feel straightforward.",
+        email: "elliot.morgan@northstar.co",
+        location: "San Jose, CA",
+        phone: "(408) 555-0197"
+      },
+      {
+        id: "sofia-reyes",
+        name: "Sofia Reyes",
+        role: "Partnerships",
+        description: "Develops collaborative relationships with organizations doing meaningful work.",
+        email: "sofia.reyes@northstar.co",
+        location: "Berkeley, CA",
+        phone: "(510) 555-0120"
+      },
+      {
+        id: "noah-kim",
+        name: "Noah Kim",
+        role: "Client Success",
+        description: "Helps clients get lasting value from every program, tool, and interaction.",
+        email: "noah.kim@northstar.co",
+        location: "Remote · Pacific",
+        phone: "(650) 555-0142"
+      }
+    ];
+
+    const searchInput = document.getElementById("directory-search");
+    const clearButton = document.getElementById("clear-search");
+    const grid = document.getElementById("directory-grid");
+    const noResultsState = document.getElementById("no-results-state");
+    const emptyDirectoryState = document.getElementById("empty-directory-state");
+    const resultsCounter = document.getElementById("results-counter");
+    const srResults = document.getElementById("screen-reader-results");
+    const totalLabel = document.getElementById("member-total");
+
+    function normalize(value) {
+      return String(value).toLowerCase().trim();
+    }
+
+    function matchesEntry(entry, query) {
+      if (!query) return true;
+      const searchableText = [
+        entry.name,
+        entry.role,
+        entry.description,
+        entry.email,
+        entry.location,
+        entry.phone
+      ].join(" ");
+      return normalize(searchableText).includes(query);
+    }
+
+    function createCard(entry) {
+      const fragment = document.getElementById("directory-card-template").content.cloneNode(true);
+      const card = fragment.querySelector("[data-template-id='directory-card']");
+      card.dataset.entryId = entry.id;
+      updateCard(card, entry);
+      return fragment;
+    }
+
+    function updateCard(card, entry) {
+      card.querySelector("[data-template-id='directory-name']").textContent = entry.name;
+      card.querySelector("[data-template-id='directory-role']").textContent = entry.role;
+      card.querySelector("[data-template-id='directory-description']").textContent = entry.description;
+      card.querySelector("[data-template-id='directory-email']").textContent = entry.email;
+      card.querySelector("[data-template-id='directory-location']").textContent = entry.location;
+      card.querySelector("[data-template-id='directory-phone']").textContent = entry.phone;
+      card.setAttribute("aria-label", entry.name + ", " + entry.role);
+    }
+
+    function renderDirectory() {
+      const query = normalize(searchInput.value);
+      const matches = directoryEntries.filter((entry) => matchesEntry(entry, query));
+      const currentCards = new Map(
+        Array.from(grid.children).map((card) => [card.dataset.entryId, card])
+      );
+
+      matches.forEach((entry) => {
+        const existingCard = currentCards.get(entry.id);
+        if (existingCard) {
+          updateCard(existingCard, entry);
+          currentCards.delete(entry.id);
+        } else {
+          grid.appendChild(createCard(entry));
+        }
+      });
+
+      currentCards.forEach((card) => card.remove());
+
+      const total = directoryEntries.length;
+      resultsCounter.textContent = "Showing " + matches.length + " of " + total + " results";
+      srResults.textContent = matches.length + " results found.";
+      totalLabel.textContent = total + (total === 1 ? " person" : " people");
+      clearButton.classList.toggle("hidden", searchInput.value.length === 0);
+      clearButton.classList.toggle("flex", searchInput.value.length > 0);
+
+      noResultsState.classList.toggle("hidden", !(total > 0 && matches.length === 0));
+      emptyDirectoryState.classList.toggle("hidden", total !== 0);
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    searchInput.addEventListener("input", renderDirectory);
+
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      renderDirectory();
+      searchInput.focus();
+    });
+
+    renderDirectory();
+  </script>
+ 
+</body></html>
