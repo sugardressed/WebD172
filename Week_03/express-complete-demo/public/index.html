@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Express Complete Demo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Express Complete Demo</h1>
-    <p>This page is being served from the public folder.</p>
 
-    <button id="loadCourses">Load Courses</button>
-    <div id="output"></div>
+    <div class="left">
+      <button id="loadCourses">Load Courses</button>
+      <div id="courseOutput"></div>
+    </div>
+
+    <div class="right">
+      <input id="studentName" type="text" placeholder="Enter student name" />
+    <input id="courseIdInput" type="text" placeholder="Enter course ID" />
+
+
+      
+      <button id="loadStudent">Load Student</button>
+      <div id="studentOutput"></div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -3,6 +3,13 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+const courses = [
+  { id: 1, title: "Full Stack JavaScript" },
+  { id: 2, title: "Advanced JavaScript" },
+  { id: 3, title: "Express 101" },
+  { id: 4, title: "WebD 172" },
+];
+
 // Built-in middleware
 app.use(express.json());
 app.use(express.static("public"));
@@ -28,27 +35,23 @@ app.get("/about", (req, res) => {
 
 // JSON response
 app.get("/courses", (req, res) => {
-  res.json([
-    { id: 1, title: "Full Stack JavaScript" },
-    { id: 2, title: "Advanced JavaScript" },
-    { id: 3, title: "Express 101" },
-  ]);
+  res.json(courses);
 });
 
-// Route parameter
-app.get("/student/:name", (req, res) => {
+app.get("/api/student/:name", (req, res) => {
   const { name } = req.params;
-  res.send(`Welcome, ${name}!`);
-});
+  const courseId = Number(req.query.courseId);
 
-// app.get("/student/:name", (req, res) => {
-//   const { name } = req.params;
-//   res.json([
-//     { id: 1, name: "Elizabeth" },
-//     { id: 2, name: "Jonh" },
-//     { id: 3, name: "Jane" },
-//   ]);
-// });
+  const course = courses.find((c) => c.id === courseId);
+
+  const student = {
+    name: name,
+    course: course ? course.title : "Unknown course",
+    grade: "A",
+  };
+
+  res.json(student);
+});
 
 // Start the server
 app.listen(PORT, () => {
