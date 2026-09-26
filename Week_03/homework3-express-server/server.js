@@ -18,6 +18,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static("public"));
+
 // Home page - renders HTML reponse
 app.get("/", (req, res) => {
   res.send(`
@@ -26,12 +28,11 @@ app.get("/", (req, res) => {
         `);
 });
 
-app.use(express.static("public"));
-
 // about - HTML response
 app.get("/about", (req, res) => {
   res.send(`
-      <h1>About Page</h1>
+    <link rel="stylesheet" href="style.css" />  
+    <h1>About Page</h1>
       <p>My Name is: Elizabeth</p>
       <p>Course Name is: WebD 172</p>
       <p>Semester: Fall</p>
@@ -57,6 +58,21 @@ app.get("/student/:name", (req, res) => {
 app.get("/course/:courseName", (req, res) => {
   const { courseName } = req.params;
   res.send(`You are vieweing the ${courseName} course.`);
+});
+
+app.get("/api/student/:name", (req, res) => {
+  const { name } = req.params;
+  const courseId = Number(req.query.courseId);
+
+  const course = courses.find((c) => c.id === courseId);
+
+  const student = {
+    name: name,
+    course: course ? course.title : "Unknown course",
+    grade: "A",
+  };
+
+  res.json(student);
 });
 
 app.listen(PORT, () => {
