@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEBD 172 Course Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>WEBD 172 Course Portal</h1>
+  <p>A complete Node.js + Express Demonstration</p></header>
+
+  <main>
+    <section>
+      <h2>Available Courses</h2>
+      <button id="loadCoursesBtn">Load Courses</button>
+      <div id="courses"></div>
+    </section>
+    
+    <section>
+      <h2>Find a Course by ID</h2>
+      <form id="courseForm">
+        <label for="courseId">Course ID:</label>
+        <input type="number" id="courseId"  min="1" required>
+        <button type="submit">Find Course</button>
+      </form>
+      <div id="courseResult"></div>
+    </section>
+
+    <section>
+      <h2>Express-Generated Page</h2>
+      <p><a href="/about">Visit the about route</a></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

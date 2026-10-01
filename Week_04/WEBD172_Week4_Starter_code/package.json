@@ -1,0 +1,12 @@
+{
+  "name": "webd172-week4-course-portal",
+  "version": "1.0.0",
+  "description": "WEBD 172 Week 4 Node.js and Express synthesis project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
