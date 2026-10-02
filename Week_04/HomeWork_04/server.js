@@ -1,27 +1,9 @@
+const getMovies = require("./api");
 const express = require("express");
-
 const app = express();
 const PORT = 3000;
-const courses = [
-  {
-    id: 1,
-    title: "Full Stack JavaScript",
-    description:
-      "Learn to build web applications using JavaScript, Node.js, and React.",
-  },
-  {
-    id: 2,
-    title: "Advanced JavaScript",
-    description:
-      "Deep dive into advanced JavaScript concepts and best practices.",
-  },
-  {
-    id: 3,
-    title: "Node.js Fundamentals",
-    description:
-      "Learn the basics of building server-side applications with Node.js.",
-  },
-];
+
+let movies = [];
 
 // Middleware
 app.use(express.json());
@@ -41,22 +23,35 @@ app.get("/about", (req, res) => {
   `);
 });
 
-//Courses route
-app.get("/api/courses", (req, res) => {
-  res.json(courses);
+// Movies routes
+app.get("/api/movies", (req, res) => {
+  res.json(movies);
 });
 
-//Course by ID route
-app.get("/api/courses/:id", (req, res) => {
+// Movie by ID route
+app.get("/api/movies/:id", (req, res) => {
   const id = Number(req.params.id);
-  const course = courses.find((course) => course.id === id);
+  const movie = movies.find((movie) => movie.movie_id === id);
 
-  if (!course) {
-    return res.status(404).send("Course not found");
+  if (!movie) {
+    return res.status(404).json({ message: "Movie not found" });
   }
 
-  res.json(course);
+  res.json(movie);
 });
+
+const loadMovies = async () => {
+  try {
+    movies = await getMovies();
+    movies.sort((a, b) =>
+      (a.original_title || "").localeCompare(b.original_title || ""),
+    );
+  } catch (error) {
+    console.error("Unable to load movies:", error);
+  }
+};
+
+loadMovies();
 
 // Start server
 app.listen(PORT, () => {

@@ -1,36 +1,35 @@
-const loadCoursesButton = document.getElementById("loadCoursesBtn");
-const coursesOutput = document.getElementById("courses");
-const courseForm = document.getElementById("courseForm");
-const courseIdInput = document.getElementById("courseId");
-const courseResult = document.getElementById("courseResult");
+const loadMoviesButton = document.getElementById("loadMoviesBtn");
+const moviesOutput = document.getElementById("movies");
+const movieForm = document.getElementById("movieForm");
+const movieIdInput = document.getElementById("movieId");
+const movieResult = document.getElementById("movieResult");
 
-const displayCourses = ({ id, title, description }) => `
-    <article class="course">
-        <h3>${title}</h3>
-        <p><strong>ID:</strong> ${id}</p>
-        <p>${description}</p>
+const displayMovie = ({ movie_id, original_title, poster_path, overview }) => `
+    <article class="movie">
+    <h3>${original_title}</h3>
+    <p><strong>ID:</strong> ${movie_id}</p>
+    <img src="${poster_path}" alt="${original_title} poster" width="200" />
+    <p><strong>Overview:</strong> ${overview || "No overview available."}</p>
     </article>
 `;
 
-loadCoursesButton.addEventListener("click", async () => {
-  const response = await fetch("/api/courses");
-  const courses = await response.json();
-  coursesOutput.innerHTML = courses
-    .map((course) => displayCourses(course))
-    .join("");
+loadMoviesButton.addEventListener("click", async () => {
+  const response = await fetch("/api/movies");
+  const movies = await response.json();
+  moviesOutput.innerHTML = movies.map(displayMovie).join("");
 });
 
-courseForm.addEventListener("submit", async (event) => {
+movieForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const id = courseIdInput.value;
-  const response = await fetch(`/api/courses/${id}`);
+  const id = movieIdInput.value;
+  const response = await fetch(`/api/movies/${id}`);
   const data = await response.json();
 
   if (!response.ok) {
-    courseResult.innerHTML = `<p class="error">${data.message}</p>`;
+    movieResult.innerHTML = `<p class="error">${data.message}</p>`;
     return;
   }
 
-  courseResult.innerHTML = displayCourses(data);
+  movieResult.innerHTML = displayMovie(data);
 });
