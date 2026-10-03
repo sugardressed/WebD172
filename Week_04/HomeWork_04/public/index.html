@@ -8,10 +8,21 @@
 </head>
 <body>
   <header>
+    
     <h1>Movies Portal</h1>
-  <p>Search for your favorite movies!</p></header>
+  <p>Search for your favorite movies!</p>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+      <button type="button" id="resetBtn">Reset</button> 
+</nav>
 
+</header>
+ 
   <main>
+   
     <section>
       <h2>Available Movies</h2>
       <button id="loadMoviesBtn">Load Movies</button>
@@ -23,15 +34,19 @@
       <form id="movieForm">
         <label for="movieId">Movie ID:</label>
         <input type="number" id="movieId"  min="1" required>
-        <button type="submit">Find Movie</button>
+        <button type="submit" class="btn-find">Find Movie</button>
       </form>
       <div id="movieResult"></div>
+
+ 
     </section>
 
-    <section>
+          <section class="express-page">
       <h2>Express-Generated Page</h2>
       <p><a href="/about">Visit the about route</a></p>
     </section>
+
+   
   </main>
   <script src="script.js"></script>
 </body>
