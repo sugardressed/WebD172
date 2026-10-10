@@ -1,0 +1,13 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f4f6f8; color: #222; }
+.container { width: min(1100px, 92%); margin: 0 auto; padding: 40px 0; }
+header { margin-bottom: 30px; }
+.eyebrow { font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+h1 { margin-bottom: 8px; }
+button { margin-top: 12px; padding: 10px 16px; font: inherit; cursor: pointer; }
+.course-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.course-card { background: white; border: 1px solid #d8dde3; border-radius: 8px; padding: 20px; }
+.course-card h2 { margin-top: 6px; }
+.course-code { margin-bottom: 0; font-weight: bold; }
+.message { padding: 20px; background: white; border: 1px solid #d8dde3; }
+@media (max-width: 800px) { .course-list { grid-template-columns: 1fr; } }
