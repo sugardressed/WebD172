@@ -1,0 +1,17 @@
+<script>
+const originalTasks = [
+  { id: 1, title: "Study React" }
+];
+
+const newTask = {
+  id: 2,
+  title: "Learn Express"
+};
+
+const updatedTasks = [
+  ...originalTasks,
+  newTask
+];
+
+console.log(updatedTasks);
+</script>

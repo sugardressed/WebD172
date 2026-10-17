@@ -1,0 +1,22 @@
+<script>
+
+const task = {
+  title: "Study REST",
+  completed: false
+};
+
+const jsonTask = JSON.stringify(task);
+
+console.log(jsonTask);
+
+
+const jsonText =
+  '{"title":"Study REST","completed":false}';
+
+const task = JSON.parse(jsonText);
+
+console.log(task.title);
+
+
+
+</script>
