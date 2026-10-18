@@ -1,8 +1,8 @@
-<script>
+// Some Method: That will find some records, at least one is true.
 const tasks = [
   { id: 1, title: "Study React", completed: false },
   { id: 2, title: "Build API", completed: true },
-  { id: 3, title: "Learn MongoDB", completed: false }
+  { id: 3, title: "Learn MongoDB", completed: false },
 ];
 
 //Checks whether at least one item matches.
@@ -12,4 +12,5 @@ const hasCompletedTask = tasks.some((task) => {
 });
 
 console.log(hasCompletedTask);
-</script>
+
+//OUTPUT: true

@@ -1,8 +1,9 @@
-<script>
+//Find Method: Will find the first matching record.
+
 const tasks = [
   { id: 1, title: "Study React", completed: false },
   { id: 2, title: "Build API", completed: true },
-  { id: 3, title: "Learn MongoDB", completed: false }
+  { id: 3, title: "Learn MongoDB", completed: false },
 ];
 
 const task = tasks.find((task) => {
@@ -10,4 +11,6 @@ const task = tasks.find((task) => {
 });
 
 console.log(task);
-</script>
+
+//OUTPUT:
+//{ id: 2, title: 'Build API', completed: true }
