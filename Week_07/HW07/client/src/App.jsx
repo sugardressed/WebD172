@@ -4,6 +4,8 @@ import CourseForm from "./components/CourseForm.jsx";
 import CourseSummary from "./components/CourseSummary.jsx";
 import CourseFilter from "./components/CourseFilter.jsx";
 import CourseList from "./components/CourseList.jsx";
+import CourseSearch from "./components/CourseSearch.jsx";
+import Footer from "./components/Footer.jsx";
 import './App.css'
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
   const [filter, setFilter] = useState("all");
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [search,setSearch]=useState("");
 
   useEffect(() => {
     async function loadCourses() {
@@ -93,6 +96,10 @@ function App() {
     displayedCourses = activeCourses;
   }
 
+  displayedCourses = displayedCourses.filter(function (course) {
+  return course.title.toLowerCase().includes(search.toLowerCase());
+});
+
   if (filter === "completed") {
     displayedCourses = completedCourses;
   }
@@ -121,6 +128,8 @@ function App() {
   return (
     <main className="app">
       <Header />
+      <CourseSearch search={search} 
+      onSearchChange={setSearch}/>
 
       <CourseForm onAddCourse={addCourse} />
 
@@ -134,13 +143,12 @@ function App() {
         onFilterChange={setFilter}
       />
 
-      
-
       <CourseList
         courses={displayedCourses}
         onToggleCourse={toggleCourse}
         onDeleteCourse={deleteCourse}
       />
+      <Footer />
     </main>
   );
 }

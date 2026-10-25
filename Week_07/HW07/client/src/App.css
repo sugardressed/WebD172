@@ -81,7 +81,54 @@ button:focus-visible, input:focus-visible {
   box-shadow: 0 8px 30px #60371208;
 }
 
-.course-form { margin-bottom: 1.5rem; }
+/* Search is the primary action; adding a course is secondary. */
+.course-search {
+  margin-bottom: 1rem;
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+  border: 1px solid #ce925f;
+  border-top: 4px solid #ac471d;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff8ed, #f8e3cc);
+  box-shadow: 0 10px 30px #60371212;
+}
+
+.course-search label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #513522;
+  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.course-search input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  padding: 1rem 1.15rem;
+  border: 2px solid #bd7847;
+  border-radius: 12px;
+  background: #fffcf7;
+  color: #432f25;
+  box-shadow: 0 3px 8px #60371208;
+}
+
+.course-search input::placeholder { color: #795b46; }
+.course-search input:hover { border-color: #ac471d; }
+.course-search input:focus {
+  border-color: #ac471d;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px #ac471d14;
+}
+
+.course-form {
+  margin-bottom: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  border-radius: 14px;
+  background: #f5ecdf;
+  box-shadow: none;
+}
 .course-form label {
   display: block;
   margin-bottom: 0.75rem;
@@ -106,13 +153,13 @@ button:focus-visible, input:focus-visible {
 
 .course-form button {
   padding: 0.85rem 1.25rem;
-  border: 1px solid #ac471d;
+  border: 1px solid #b99a7d;
   border-radius: 10px;
-  background: #ac471d;
-  color: #fffaf4;
+  background: #fffaf3;
+  color: #674831;
   font-weight: 650;
 }
-.course-form button:hover { background: #873613; border-color: #873613; }
+.course-form button:hover { background: #efdfcc; border-color: #896345; }
 
 .course-summary {
   margin: 1.25rem 0;
