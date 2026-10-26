@@ -45,11 +45,13 @@ function App() {
     document.title = `${courses.length} Courses`;
   }, [courses]);
 
-  function addCourse(title) {
+  function addCourse(title, department, units) {
     const newCourse = {
       id: Date.now(),
       title: title,
-      completed: false
+      department: department,
+      units: units,
+      disabled: false
     };
 
     const updatedCourses = [...courses, newCourse];
@@ -61,7 +63,7 @@ function App() {
       if (course.id === id) {
         return {
           ...course,
-          completed: !course.completed
+          disabled: !course.disabled
         };
       }
 
@@ -79,15 +81,15 @@ function App() {
     setCourses(updatedCourses);
   }
 
-  const completedCourses = courses.filter((course) => {
-    return course.completed;
+  const disabledCourses = courses.filter((course) => {
+    return course.disabled;
   });
 
   const activeCourses = courses.filter((course) => {
-    return !course.completed;
+    return !course.disabled;
   });
 
-  const completedCount = completedCourses.length;
+  const disabledCount = disabledCourses.length;
   const totalCount = courses.length;
 
   let displayedCourses = courses;
@@ -96,13 +98,13 @@ function App() {
     displayedCourses = activeCourses;
   }
 
-  displayedCourses = displayedCourses.filter(function (course) {
-  return course.title.toLowerCase().includes(search.toLowerCase());
-});
-
-  if (filter === "completed") {
-    displayedCourses = completedCourses;
+  if (filter === "disabled") {
+    displayedCourses = disabledCourses;
   }
+
+  displayedCourses = displayedCourses.filter(function (course) {
+    return course.title.toLowerCase().includes(search.toLowerCase());
+  });
 
   if (isLoading) {
     return (
@@ -134,7 +136,7 @@ function App() {
       <CourseForm onAddCourse={addCourse} />
 
       <CourseSummary
-        completedCount={completedCount}
+        disabledCount={disabledCount}
         totalCount={totalCount}
       />
 

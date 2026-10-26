@@ -7,8 +7,8 @@ function CourseFilter({ currentFilter, onFilterChange }) {
     onFilterChange("active");
   }
 
-  function showCompletedCourses() {
-    onFilterChange("completed");
+  function showDisabledCourses() {
+    onFilterChange("disabled");
   }
 
   return (
@@ -31,8 +31,8 @@ function CourseFilter({ currentFilter, onFilterChange }) {
 
       <button
         type="button"
-        className={currentFilter === "completed" ? "active-filter" : ""}
-        onClick={showCompletedCourses}
+        className={currentFilter === "disabled" ? "active-filter" : ""}
+        onClick={showDisabledCourses}
       >
         Not Available
       </button>

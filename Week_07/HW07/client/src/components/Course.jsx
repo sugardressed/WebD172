@@ -7,8 +7,8 @@ function Course({ course, onToggleCourse, onDeleteCourse }) {
     onDeleteCourse(course.id);
   }
 
-  const courseClassName = course.completed
-    ? "course completed"
+  const courseClassName = course.disabled
+    ? "course disabled"
     : "course";
 
   return (
@@ -16,11 +16,19 @@ function Course({ course, onToggleCourse, onDeleteCourse }) {
       <label className="course-content">
         <input
           type="checkbox"
-          checked={course.completed}
+          checked={course.disabled}
           onChange={handleToggle}
         />
 
-        <span>{course.title}</span>
+        <span className="course-details">
+          <span className="course-title">{course.title}</span>
+          <span className="course-meta">
+            Department: {course.department || "Not specified"}
+          </span>
+          <span className="course-meta">
+            Units: {course.units ?? "Not specified"}
+          </span>
+        </span>
       </label>
 
       <button

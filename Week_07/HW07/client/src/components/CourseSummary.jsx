@@ -1,7 +1,7 @@
-function CourseSummary({ completedCount, totalCount }) {
+function CourseSummary({ disabledCount, totalCount }) {
   return (
     <p className="course-summary">
-      {completedCount} of {totalCount} course(s) not available
+      {disabledCount} of {totalCount} course(s) not available
     </p>
   );
 }
