@@ -80,10 +80,16 @@ app.get("/api/courses/:id", (req, res) => {
 app.post("/api/courses", (req, res) => {
   const { title, department, units } = req.body;
 
+  if (!title || title.trim() === "") {
+    return res.status(400).json({
+      message: "Course title is required.",
+    });
+  }
+
   const newCourse = {
     id: Date.now(),
-    title,
-    department,
+    title: title.trim(),
+    department: department.trim(),
     units,
     disabled: false,
   };
