@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+app.use(cors()); // Allow cross-origin requests from the React app running on a different port.
 app.use(express.json()); // Allow express reads json from react request body.
 
 const courses = [
@@ -68,9 +68,14 @@ const courses = [
 //FOR TESTNG WITH MONGODB CONNECTION
 
 app.get("/api/test", async (req, res) => {
-  const coursesCollection = await getCoursesCollection();
-  const courses = await coursesCollection.find({}).toArray();
-  res.json(courses);
+  try {
+    const coursesCollection = await getCoursesCollection();
+    const courses = await coursesCollection.find({}).toArray();
+    res.json(courses);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Database error" });
+  }
 });
 
 // Get the course by ID
@@ -100,7 +105,27 @@ app.get("/api/courses/:id", async (req, res) => {
 });
 
 // Add a course
-app.post("/api/courses", (req, res) => {
+// app.post("/api/courses", (req, res) => {
+//   const { title, department, units } = req.body;
+
+//   if (!title || title.trim() === "") {
+//     return res.status(400).json({
+//       message: "Course title is required.",
+//     });
+//   }
+
+//   const newCourse = {
+//     id: Date.now(),
+//     title: title.trim(),
+//     department: department.trim(),
+//     units,
+//     disabled: false,
+//   };
+//   courses.push(newCourse);
+//   res.status(201).json(newCourse);
+// });
+//FOR TESTING WITH MONGODB CONNECTION
+app.post("/api/courses", async (req, res) => {
   const { title, department, units } = req.body;
 
   if (!title || title.trim() === "") {
@@ -110,42 +135,75 @@ app.post("/api/courses", (req, res) => {
   }
 
   const newCourse = {
-    id: Date.now(),
     title: title.trim(),
     department: department.trim(),
     units,
     disabled: false,
   };
-  courses.push(newCourse);
+
+  const coursesCollection = await getCoursesCollection();
+  const result = await coursesCollection.insertOne(newCourse);
+  newCourse._id = result.insertedId;
   res.status(201).json(newCourse);
 });
 
 // Update a course's disabled status
-app.patch("/api/courses/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const course = courses.find((course) => course.id === id);
+// app.patch("/api/courses/:id", (req, res) => {
+//   const id = Number(req.params.id);
+//   const course = courses.find((course) => course.id === id);
 
+//   if (!course) {
+//     return res.status(404).json({ message: "Course not found." });
+//   }
+
+//   course.disabled = req.body.disabled;
+//   res.json(course);
+// });
+//FOR TESTING WITH MONGODB CONNECTION
+app.patch("/api/courses/:id", async (req, res) => {
+  const courseId = new ObjectId(req.params.id);
+
+  const coursesCollection = await getCoursesCollection();
+
+  const update = { $set: { disabled: req.body.disabled } };
+  const result = await coursesCollection.updateOne({ _id: courseId }, update);
+
+  if (result.matchedCount === 0) {
+    return res.status(404).json({ message: "Course not found." });
+  }
+
+  const updatedCourse = await coursesCollection.findOne({ _id: courseId });
+  res.json(updatedCourse);
+});
+
+// Delete a course
+// app.delete("/api/courses/:id", (req, res) => {
+//   const id = Number(req.params.id);
+//   const index = courses.findIndex((course) => course.id === id);
+
+//   if (index === -1) {
+//     return res.status(404).json({ message: "Course not found." });
+//   }
+
+//   courses.splice(index, 1);
+//   res.json({ message: "Course deleted." });
+// });
+//FOR TESTING WITH MONGODB CONNECTION
+app.delete("/api/courses/:id", async (req, res) => {
+  const courseId = new ObjectId(req.params.id);
+
+  const coursesCollection = await getCoursesCollection();
+
+  const course = await coursesCollection.findOne({ _id: courseId });
   if (!course) {
     return res.status(404).json({ message: "Course not found." });
   }
 
-  course.disabled = req.body.disabled;
-  res.json(course);
-});
-
-// Delete a course
-app.delete("/api/courses/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const index = courses.findIndex((course) => course.id === id);
-
-  if (index === -1) {
-    return res.status(404).json({ message: "Course not found." });
-  }
-
-  courses.splice(index, 1);
+  await coursesCollection.deleteOne({ _id: courseId });
   res.json({ message: "Course deleted." });
 });
 
+//This is the PORT connection
 app.listen(PORT, () => {
   console.log(
     "Course API running at http://localhost:" + PORT + "/api/courses",
