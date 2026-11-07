@@ -1,10 +1,10 @@
 function Course({ course, onToggleCourse, onDeleteCourse }) {
   function handleToggle() {
-    onToggleCourse(course.id);
+    onToggleCourse(course._id);
   }
 
   function handleDelete() {
-    onDeleteCourse(course.id);
+    onDeleteCourse(course._id);
   }
 
   const courseClassName = course.disabled

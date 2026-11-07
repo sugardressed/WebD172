@@ -28,7 +28,7 @@ const client = new MongoClient(connectionString);
 async function connectToDatabase() {
   await client.connect();
 
-  const database = client.db("coursesDB");
+  const database = client.db("webd172");
 
   return database;
 }
@@ -40,3 +40,5 @@ async function getCoursesCollection() {
 
   return coursesCollection;
 }
+
+module.exports = { getCoursesCollection };

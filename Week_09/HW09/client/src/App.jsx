@@ -76,7 +76,7 @@ async function addCourse(title, department,units) {
     try{
       setErrorMessage("");
       const course=courses.find((course) =>{
-        return course.id ===id;
+        return course._id ===id;
       });
       if (!course){
         throw new Error ("Course not found in React State.");
@@ -96,7 +96,7 @@ async function addCourse(title, department,units) {
     }
     const updatedCourse= await response.json();
     const updatedCourses= courses.map((course) =>{
-      if (course.id ===id){
+      if (course._id ===id){
         return updatedCourse;
       }
       return course;
@@ -119,7 +119,7 @@ async function addCourse(title, department,units) {
         throw new Error(errorData.message || "Could not delete course.");
       }
 const updatedCourses = courses.filter((course) =>{
-  return course.id !==id;
+  return course._id !==id;
 });
 setCourses(updatedCourses);
     } catch (error){

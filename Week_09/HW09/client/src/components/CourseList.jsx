@@ -16,7 +16,7 @@ function CourseList({ courses, onToggleCourse, onDeleteCourse }) {
       <ul>
         {courses.map((course) => (
           <Course
-            key={course.id}
+            key={course._id}
             course={course}
             onToggleCourse={onToggleCourse}
             onDeleteCourse={onDeleteCourse}

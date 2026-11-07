@@ -1,63 +1,66 @@
 const express = require("express");
 const cors = require("cors");
+const { objectId } = require("mongodb");
 
 const app = express();
 const PORT = 3000;
 
+const { getCoursesCollection } = require("./database"); // Import the function to get the courses collection from the database.
+
 app.use(cors()); // Allow cross-origin requests from the React app running on a different port.
 app.use(express.json()); // Allow express reads json from react request body.
 
-const courses = [
-  {
-    id: 1,
-    title: "React",
-    department: "Web Development",
-    units: "3",
-    disabled: true,
-  },
-  {
-    id: 2,
-    title: "Java Script",
-    department: "Web Development",
-    units: "3",
-    disabled: true,
-  },
-  {
-    id: 3,
-    title: "Express",
-    department: "Web Development",
-    units: "3",
-    disabled: false,
-  },
-  {
-    id: 4,
-    title: "Music 100",
-    department: "Humanities",
-    units: "2",
-    disabled: false,
-  },
-  {
-    id: 5,
-    title: "Communications",
-    department: "Humanities",
-    units: "2",
-    disabled: true,
-  },
-  {
-    id: 6,
-    title: "Design UX|UI",
-    department: "Web Development",
-    units: "3",
-    disabled: false,
-  },
-  {
-    id: 7,
-    title: "Physics",
-    department: "Science",
-    units: "4",
-    disabled: true,
-  },
-];
+// const courses = [
+//   {
+//     id: 1,
+//     title: "React",
+//     department: "Web Development",
+//     units: "3",
+//     disabled: true,
+//   },
+//   {
+//     id: 2,
+//     title: "Java Script",
+//     department: "Web Development",
+//     units: "3",
+//     disabled: true,
+//   },
+//   {
+//     id: 3,
+//     title: "Express",
+//     department: "Web Development",
+//     units: "3",
+//     disabled: false,
+//   },
+//   {
+//     id: 4,
+//     title: "Music 100",
+//     department: "Humanities",
+//     units: "2",
+//     disabled: false,
+//   },
+//   {
+//     id: 5,
+//     title: "Communications",
+//     department: "Humanities",
+//     units: "2",
+//     disabled: true,
+//   },
+//   {
+//     id: 6,
+//     title: "Design UX|UI",
+//     department: "Web Development",
+//     units: "3",
+//     disabled: false,
+//   },
+//   {
+//     id: 7,
+//     title: "Physics",
+//     department: "Science",
+//     units: "4",
+//     disabled: true,
+//   },
+// ];
 //req=request
 //res=response
 //Get all the courses
@@ -67,7 +70,7 @@ const courses = [
 
 //FOR TESTNG WITH MONGODB CONNECTION
 
-app.get("/api/test", async (req, res) => {
+app.get("/api/courses", async (req, res) => {
   try {
     const coursesCollection = await getCoursesCollection();
     const courses = await coursesCollection.find({}).toArray();
