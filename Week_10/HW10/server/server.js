@@ -77,39 +77,7 @@ app.post("/api/courses", async (req, res) => {
   }
 });
 
-// Patch a course by ID
-// app.patch("/api/courses/:id", async (req, res) => {
-//   try {
-//     const updatedCourse = await Course.findByIdAndUpdate(
-//       req.params.id,
-//       req.body,
-//       { new: true, runValidators: true },
-//     );
-//     if (!updatedCourse) {
-//       return res.status(404).json({ message: "Course not found" });
-//     }
-//     res.json(updatedCourse);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// });
-
-// app.patch("/api/courses/:id", async (req, res) => {
-//   const courseId = new ObjectId(req.params.id);
-
-//   const coursesCollection = await getCoursesCollection();
-
-//   const update = { $set: { disabled: req.body.disabled } };
-//   const result = await coursesCollection.updateOne({ _id: courseId }, update);
-
-//   if (result.matchedCount === 0) {
-//     return res.status(404).json({ message: "Course not found." });
-//   }
-
-//   const updatedCourse = await coursesCollection.findOne({ _id: courseId });
-//   res.json(updatedCourse);
-// });
-
+// Patch a course by ID -- Enables and disables a course by ID
 app.patch("/api/courses/:id", async (req, res) => {
   try {
     if (typeof req.body.disabled !== "boolean") {
