@@ -21,6 +21,18 @@ const courses = [
         department: "WEBD",
         units: 3,
         description: "Node, Express, React, MongoDB, and full-stack development."
+    },
+    {
+        title: "Mongoose",
+        department: "WEBD",
+        units: 3,
+        description: "Introduction to Mongoose."
+    },
+    {
+        title: "Postman",
+        department: "WEBD",
+        units: 3,
+        description: "Handle JSON request methods."
     }
 ];
 
